@@ -1,0 +1,12 @@
+<% if (typeof error !== 'undefined' && error.length > 0) { %>
+    <div class="bg-red-500 text-white p-4 text-center" style="margin-top: 1rem;">
+        <% if(error.length==1) { %>
+            <p><%= error %></p>
+        
+        <% } else { %>
+            <p>Please enter all the required fileds</p>
+        <% } %>
+    </div>
+<% } %>
+
+

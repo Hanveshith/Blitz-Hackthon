@@ -1,0 +1,12 @@
+<% if (typeof success !== 'undefined' && success.length > 0) { %>
+    <div class="bg-green-500 text-white p-4 text-center" style="margin-top: 1rem;">
+        <% if(success.length==1) { %>
+            <p><%= success %></p>
+        
+        <% } else { %>
+            <p>All are  successfully created</p>
+        <% } %>
+    </div>
+<% } %>
+
+
