@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ba6d17dfa2.js" crossorigin="anonymous"></script>
+  <title>Signup</title>
+</head>
+<body class="bg-blue-200 h-screen flex items-center justify-center">
+  <div class="flex flex-col md:flex-row items-center justify-center w-full max-w-screen-xl">
+    <div class="mb-8 md:mb-0 md:flex-shrink-0 md:w-1/2 p-8">
+      <img src="/images/loginpage.png" alt="Learning Image" class="object-cover h-64 md:h-full w-full rounded-md">
+    </div>
+    
+    <!-- Signup Form -->
+    <div class="bg-white p-10 rounded shadow-md w-full md:w-1/2">
+      <h2 class="text-2xl font-semibold text-blue-500 mb-4">Sign Up</h2>
+      <form action="/signup" method="post">
+        <input name="_csrf" value="<%= csrfToken %>" type="hidden"/>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="mb-4">
+            <label for="firstname" class="block text-sm font-medium text-gray-600">First Name<span style="color: red;">*</span></label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                <i class="fas fa-user text-gray-400"></i>
+              </span>
+              <input type="text" id="firstname" name="firstname" class="pl-8 pr-2 py-2 w-full border border-gray-500 rounded-md">
+            </div>
+          </div>
+          <div class="mb-4">
+            <label for="lastname" class="block text-sm font-medium text-gray-600">Last Name</label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                <i class="fas fa-user text-gray-400"></i>
+              </span>
+              <input type="text" id="lastname" name="lastname" class="pl-8 pr-2 py-2 w-full border border-gray-500 rounded-md">
+            </div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-medium text-gray-600">Email<span style="color: red;">*</span></label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+              <i class="fas fa-envelope text-gray-400"></i>
+            </span>
+            <input type="email" id="email" name="email" class="pl-8 pr-2 py-2 w-full border border-gray-500 rounded-md">
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="password" class="block text-sm font-medium text-gray-600">Password<span style="color: red;">*</span></label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+              <i class="fas fa-lock text-gray-400"></i>
+            </span>
+            <input type="password" id="password" name="password" class="pl-8 pr-2 py-2 w-full border border-gray-500 rounded-md" placeholder="Must be atleast 8 characters">
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="role" class="block text-sm font-medium text-gray-600">Role<span style="color: red;">*</span></label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+              <i class="fas fa-user-graduate text-gray-400"></i>
+            </span>
+            <select id="role" name="role" class="pl-8 pr-2 py-2 w-full border border-gray-500 rounded-md">
+              <option value="trainer">Trainer</option>
+              <option value="Traine">Traine</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="bg-blue-500 text-white p-2 rounded-md w-full">Sign Up</button>
+        <div style="margin-top: 1rem;text-align: right;">
+            <a href="/login" class="text-blue-500  w-full " style="text-align: centers; font-weight: 500; font-size: medium;">Already have an account? <span style="color: green;">Sign in<i class="fas fa-arrow-right ml-1"></i></span></a>
+          </div>
+      </form>
+      <%-  include('partials/flashmessage') %>
+    </div>
+  </div>
+</body>
+</html>
