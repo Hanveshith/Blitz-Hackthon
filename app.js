@@ -12,12 +12,11 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
 const csrf = require("tiny-csrf");
+const methodOverride = require("method-override");
 const saltRounds = 10;
 
 
-//importing the routes
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+
 
 
 const {isadmin, ispeople, isLogedIn, logincheck} = require("./middleware.js");
@@ -26,6 +25,9 @@ const {isadmin, ispeople, isLogedIn, logincheck} = require("./middleware.js");
 const { User } = require("./models");
 
 const signup =  require("./routes/signup");
+
+
+
 
 
 //intializing the express app
@@ -42,9 +44,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser("ssh some key!"));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use(flash());
+
+// Method override middl
+
+app.use(
+  methodOverride(function (req, res) {
+    if (req.body && typeof req.body === "object" && "_method" in req.body) {
+      var method = req.body._method;
+      delete req.body._method;
+      return method;
+    }
+  }),
+);
 
 
 const sessionStore = new pgSession({
@@ -146,10 +158,10 @@ app.post(
   }),
   (request, response) => {
     if (request.accepts("html")) {
-      if (request.user.role === "admin") {
-        response.redirect("/admin");
+      if (request.user.role === "trainer") {
+        response.redirect("/trainer");
       } else {
-        response.redirect("/people");
+        response.reder("/traine");
       }
     } else {
       response.status(200).json({
@@ -159,6 +171,13 @@ app.post(
     }
   },
 );
+
+
+app.get("/traine", (request, response) => {
+  response.render("traine", {
+    user: request.user,
+  });
+});
 
 app.use("/signup", csrfProtection, isLogedIn, signup);
 

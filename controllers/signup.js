@@ -4,6 +4,8 @@ const saltRounds = 10;
 
 //get signup page logic
 const getsignup = (request, response) => {
+  console.log("hii get sighnup")
+  console.log("csrfToken", request.csrfToken());
   response.render("signup", {
     csrfToken: request.csrfToken(),
     error: request.flash("error"),
