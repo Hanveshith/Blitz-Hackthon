@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navsanjeevan Social Trust</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div>
+                    <a href="#" class="text-xl font-bold text-gray-800">Navsanjeevan Social Trust</a>
+                </div>
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="text-gray-600 hover:text-gray-800">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-800">Participants</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-800">Programs</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-800">Achievements</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-800">Reports</a>
+                </nav>
+                <!-- Mobile Menu Button (Hidden on Desktop) -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="focus:outline-none">
+                        <svg class="w-6 h-6 text-gray-600 hover:text-gray-800" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Mobile Menu (Hidden on Desktop) -->
+    <div id="mobile-menu" class="md:hidden bg-white hidden">
+        <div class="container mx-auto px-4 py-2">
+            <a href="#" class="block text-gray-600 hover:text-gray-800 py-2">Home</a>
+            <a href="#" class="block text-gray-600 hover:text-gray-800 py-2">Participants</a>
+            <a href="#" class="block text-gray-600 hover:text-gray-800 py-2">Programs</a>
+            <a href="#" class="block text-gray-600 hover:text-gray-800 py-2">Achievements</a>
+            <a href="#" class="block text-gray-600 hover:text-gray-800 py-2">Reports</a>
+        </div>
+    </div>
+
+    <!-- Include Tailwind CSS for responsive behavior -->
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+    <!-- JavaScript for toggle -->
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
